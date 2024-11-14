@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 200,
+  "height": 500,
+  "title": "The price of gas 95",
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/regiones.json"
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgrey",
+        "opacity": 0.5,
+        "stroke": "black",
+        "strokeWidth": 0.2
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/Precio%20combustible%202024.csv"
+      },
+      "transform": [{"filter": "datum.precio < 10000"}],
+      "mark": {"type": "circle"},
+      "encoding": {
+        "latitude": {"field": "latitud", "type": "quantitative"},
+        "longitude": {"field": "longitud", "type": "quantitative"},
+        "color": {
+          "field": "precio",
+          "type": "quantitative",
+          "scale": {"scheme": "tealblues", "domain": [1250, 1500]}
+        },
+        "tooltip": [
+          {"field": "precio"},
+          {"field": "direccion"},
+          {"field": "longitud"},
+          {"field": "latitud"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
