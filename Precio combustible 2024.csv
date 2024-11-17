@@ -854,7 +854,7 @@ pb810102,1343.4546,bulnes 1793,-36.8143499,-73.04023835,Empresa Erasmo Cano Come
 pb810501,1399.4546,Avda La Araucana  con Tegualda sitio 13,-36.97401893,-72.92704827,Inmobiliaria y Comercial Galaxia S.A,Las Galaxias,Hualqui,Del Biobío
 pb820201,1389.3846,Llico 0,-37.197235,-73.564515,Ulloa Hermanos y CIA Ltda.,Sin Bandera,Arauco,Del Biobío
 pb820202,1381.2916,Camino Arauco Carampangue 755,-37.24557152,-73.30233068,Vecoser Ltda,REDSUR,Arauco,Del Biobío
-pb820301,1388,RUTA P60 CON COVADONGA S/N LOTE 7 0,-37.804928,"-73,391,395",CKR SERVICENTRO CRISTIAN EDUARDO VENTURELLI LANDERO E.I.R.L.,CKR,Cañete,Del Biobío
+pb820301,1388,RUTA P60 CON COVADONGA S/N LOTE 7 0,-37.804928,-73.391395,CKR SERVICENTRO CRISTIAN EDUARDO VENTURELLI LANDERO E.I.R.L.,CKR,Cañete,Del Biobío
 pb830101,1343.875,Villagran 747,-37.4645326,-72.3483076,DISTRIBUIDORA RUIZ QUIROZ S A,Sin Bandera,Los Ángeles,Del Biobío
 pb830102,1342.6842,Diego de Almagro 1806,-37.4571912,-72.34625185,HUGO NAJLE HAYE,HN,Los Ángeles,Del Biobío
 pb830104,1353.6666,Los Carreras 1420,-37.4872748,-72.3431186,Sociedad Villanueva Jara Ltda,Infinia Combustibles,Los Ángeles,Del Biobío
@@ -1378,7 +1378,7 @@ sh530103,1398.4667,Chacabuco 216,-32.83804033,-70.59821427,Distribuidora y Comer
 sh530104,1397.8334,Avenida Hnos Clark 325,-32.82790076,-70.5948776,Digesa Ltda. RuT 77.737.750-7  ,SHELL,Los Andes,Valparaíso
 sh540101,1397.2903,Avda. Portales 1500,-32.45000721,-71.22895449,Comercial ARFEC SPA,SHELL,La Ligua,Valparaíso
 sh550101,1394.3226,Ariztía 650,-32.8769111,-71.23315752,Sociedad Henriquez SPA,SHELL,Quillota,Valparaíso
-sh550102,1392.9642,21 Mayo 179/M RodrÍguez 179,"-32,873,774","-712,423",Binaural Inversiones SpA,SHELL,Quillota,Valparaíso
+sh550102,1392.9642,21 Mayo 179/M RodrÍguez 179,-32.873774 ,-71.2423 ,Binaural Inversiones SpA,SHELL,Quillota,Valparaíso
 sh550103,1392.4546,Av. Valparaíso 2150,-32.896753,-71.265412,Soc. Com. de combustible Fariña Spa / 76.284.378-1,SHELL,Quillota,Valparaíso
 sh550104,1399.6364,Ramón Freire 1551,-32.8959445,-71.2465255,sociedad los riegos spa,SHELL,Quillota,Valparaíso
 sh550201,1329.1875,Los Carrera 1204,-32.78793746,-71.19816005,kascorp s.p.a,Sin Bandera,Calera,Valparaíso
