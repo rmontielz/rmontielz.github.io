@@ -52,7 +52,7 @@
             href="https://www.github.com/YOUR_GITHUB">GitHub</a>
     </p>
     <h3 class="small"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
-        Hi, and welcome to my page! This site showcases the work I completed during the course *PP434: Automated Data Visualisation for Policymaking* at LSE. The assignment includes a portfolio of 10 independent tasks and a major project.   
+        Hi, and welcome to my page! This site showcases the work I completed during the course PP434: Automated Data Visualisation for Policymaking at LSE. The assignment includes a portfolio of 10 independent tasks and a major project.   
     </h3>
 
     <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
@@ -124,7 +124,7 @@
                 Please find below two embeded charts
             </p>
         </div>
-        <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <figure id="Location7"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
 
             <section>
@@ -172,6 +172,9 @@
 
         vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
 
+        let figure_7_spec = "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/visualization.vl-3.json"
+
+        vegaEmbed('#Location7', figure_7_spec)
         // Do you want to add more graphs?
         // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
         // e.g. 
