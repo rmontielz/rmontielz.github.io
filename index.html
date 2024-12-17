@@ -70,10 +70,11 @@
         <div class="chart-description">
             <h2>CC2. Building. Create your own visualisations</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                Please find below two embeded charts
+                Please find below two embeded charts created using the Economics Observatory Data Hub and edited by myself in Vegalite.
             </p>
         </div>
-        <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <figure id="Location3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <figure id="Location4"></figure>
     </section>
 
     
@@ -172,7 +173,15 @@
 
         vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
 
+        let figure_3_spec = "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/CC2-2.json"
+
+        vegaEmbed('#Location3', figure_3_spec)
+        
         let figure_7_spec = "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/visualization.vl-3.json"
+
+       vegaEmbed('#Location4', figure_4_spec)
+        
+        let figure_4_spec = "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/CC2-1.json"
 
         vegaEmbed('#Location7', figure_7_spec)
         // Do you want to add more graphs?
