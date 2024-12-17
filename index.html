@@ -64,6 +64,7 @@
             </p>
         </div>
         <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <figure id="Location2"></figure>
     </section>
 
         <section>
@@ -173,6 +174,9 @@
 
         vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
 
+        let figure_2_spec = "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/refs/heads/main/charts/library/chartBar2.json"
+        vegaEmbed('#Location2', figure_2_spec)
+        
         let figure_3_spec = "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/CC2-2.json"
         vegaEmbed('#Location3', figure_3_spec)
         
