@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Overweight Prevalence Among Children Under 5",
+    "subtitle": [
+      "A child is classified as overweight if their weight-for-height is more than two standard deviations from the median of the WHO Child Growth Standards.",
+      "Source: World Health Organization (WHO), processed by Our World in Data."
+    ],
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start",
+    "color": "#000000",
+    "subtitleColor": "#555555"
+  },
+  "description": "Source: World Health Organization - Global Health Observatory (2024) – processed by Our World in Data",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/children-who-are-overweight-sdgs.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": {"field": "Entity", "oneOf": ["United Kingdom", "World"]}}
+  ],
+  "mark": {"type": "line", "strokeWidth": 2},
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {"grid": false}
+    },
+    "y": {
+      "field": "Overweight prevalence among children under 5 years of age (% weight-for-height >+2 SD), model-based estimates",
+      "type": "quantitative",
+      "title": "Prevalence (%)"
+    },
+    "color": {
+      "field": "Entity",
+      "type": "nominal",
+      "scale": {
+        "domain": ["United Kingdom", "World"],
+        "range": ["#4682B4", "#FF6347"]
+      },
+      "title": "Region"
+    }
+  },
+  "config": {}
+}
