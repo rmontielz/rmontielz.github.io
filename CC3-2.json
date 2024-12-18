@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Affordability of a healthy diet in the Uk",
+    "fontSize": 16,
+    "anchor": "start",
+    "subtitle": [
+      "Percentage of disposable income required to afford the Eatwell Guide by income quintile",
+      "Source: Family Resources Survey, processed by the Food Foundation"
+    ]
+  },
+  "width": 500,
+  "height": 400,
+  "data": {
+    "values": [
+      {"Income Quintile": "1", "Year": "2020-21", "Percentage": 43},
+      {"Income Quintile": "1", "Year": "2021-22", "Percentage": 50},
+      {"Income Quintile": "2", "Year": "2020-21", "Percentage": 25},
+      {"Income Quintile": "2", "Year": "2021-22", "Percentage": 28},
+      {"Income Quintile": "3", "Year": "2020-21", "Percentage": 20},
+      {"Income Quintile": "3", "Year": "2021-22", "Percentage": 22},
+      {"Income Quintile": "4", "Year": "2020-21", "Percentage": 15},
+      {"Income Quintile": "4", "Year": "2021-22", "Percentage": 17},
+      {"Income Quintile": "5", "Year": "2020-21", "Percentage": 10},
+      {"Income Quintile": "5", "Year": "2021-22", "Percentage": 11}
+    ]
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Income Quintile",
+          "type": "ordinal",
+          "axis": {"labelAngle": 0},
+          "title": "Income Quintile (most to least deprived)"
+        },
+        "y": {
+          "field": "Percentage",
+          "type": "quantitative",
+          "scale": {"domain": [0, 60]},
+          "title": "Share of Disposable Income (%)"
+        },
+        "color": {
+          "condition": {"test": "datum.Year === '2021-22'", "value": "#4682B4"},
+          "value": "transparent"
+        },
+        "tooltip": [
+          {"field": "Year", "type": "nominal"},
+          {"field": "Percentage", "type": "quantitative", "format": ".0f"}
+        ]
+      },
+      "transform": [{"filter": "datum.Year === '2021-22'"}]
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 80, "color": "#FFA500"},
+      "encoding": {
+        "x": {"field": "Income Quintile", "type": "ordinal"},
+        "y": {"field": "Percentage", "type": "quantitative"},
+        "color": {
+          "field": "Year",
+          "type": "nominal",
+          "scale": {
+            "domain": ["2020-21", "2021-22"],
+            "range": ["#FFA500", "#4682B4"]
+          },
+          "title": "Year"
+        },
+        "tooltip": [
+          {"field": "Year", "type": "nominal"},
+          {"field": "Percentage", "type": "quantitative", "format": ".0f"}
+        ]
+      },
+      "transform": [{"filter": "datum.Year === '2020-21'"}]
+    }
+  ],
+  "config": {
+    "axis": {"labelFontSize": 12, "titleFontSize": 12},
+    "legend": {"labelFontSize": 12, "symbolSize": 100}
+  }
+}
