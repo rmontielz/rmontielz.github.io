@@ -5,8 +5,8 @@
     "fontSize": 16,
     "anchor": "start"
   },
-  "width": 300,
-  "height": 500,
+  "width": 500,
+  "height": 300,
   "data": {
     "values": [
       {"Decile": 1, "Gender": "Male", "Value": 52},
