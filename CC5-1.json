@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Chile: Gross Formation Real Fixed Capital as a percentage of GDP",
+    "subtitle": "Source: scrapped from Banco Central de Chile.",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start",
+    "font": "Arial"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/bcch_scrapped2j.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": {"type": "line", "point": false},
+  "encoding": {
+    "x": {
+      "field": "indexDateString",
+      "type": "temporal",
+      "title": "Date",
+      "axis": {"format": "%Y", "labelAngle": 0}
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Percentage of GDP (%)",
+      "scale": {"domain": [0, 30]}
+    },
+    "tooltip": [
+      {"field": "indexDateString", "type": "temporal", "title": "Date"},
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Percentage of GDP (%)"
+      }
+    ]
+  },
+  "width": 600,
+  "height": 300,
+  "config": {
+    "title": {"fontSize": 16, "anchor": "start", "font": "Arial"},
+    "axis": {"labelFontSize": 12, "titleFontSize": 14},
+    "point": {"size": 50, "filled": true}
+  }
+}
