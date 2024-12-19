@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Healthy life expectancy at birth in the UK",
+    "fontSize": 16,
+    "anchor": "start",
+    "subtitle": "Source: Office for National Statistics, processed by the Food Foundation."
+  },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "values": [
+      {"Decile": 1, "Gender": "Male", "Value": 52},
+      {"Decile": 1, "Gender": "Female", "Value": 53},
+      {"Decile": 2, "Gender": "Male", "Value": 55},
+      {"Decile": 2, "Gender": "Female", "Value": 57},
+      {"Decile": 3, "Gender": "Male", "Value": 58},
+      {"Decile": 3, "Gender": "Female", "Value": 60},
+      {"Decile": 4, "Gender": "Male", "Value": 61},
+      {"Decile": 4, "Gender": "Female", "Value": 63},
+      {"Decile": 5, "Gender": "Male", "Value": 63},
+      {"Decile": 5, "Gender": "Female", "Value": 65},
+      {"Decile": 6, "Gender": "Male", "Value": 64},
+      {"Decile": 6, "Gender": "Female", "Value": 66},
+      {"Decile": 7, "Gender": "Male", "Value": 65},
+      {"Decile": 7, "Gender": "Female", "Value": 68},
+      {"Decile": 8, "Gender": "Male", "Value": 66},
+      {"Decile": 8, "Gender": "Female", "Value": 69},
+      {"Decile": 9, "Gender": "Male", "Value": 68},
+      {"Decile": 9, "Gender": "Female", "Value": 70},
+      {"Decile": 10, "Gender": "Male", "Value": 70},
+      {"Decile": 10, "Gender": "Female", "Value": 71}
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Decile",
+      "type": "ordinal",
+      "title": "Deprivation decile (most to least deprived)",
+      "axis": {"labelAngle": 0}
+    },
+    "xOffset": {"field": "Gender"},
+    "y": {
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Healthy life expectancy (years)",
+      "scale": {"domain": [0, 80]}
+    },
+    "color": {
+      "field": "Gender",
+      "type": "nominal",
+      "scale": {"domain": ["Male", "Female"], "range": ["#377EB8", "#FF7F0E"]},
+      "title": "Gender"
+    },
+    "tooltip": [
+      {"field": "Gender", "type": "nominal"},
+      {"field": "Decile", "type": "ordinal", "title": "Deprivation Decile"},
+      {"field": "Value", "type": "quantitative", "title": "Life Expectancy"}
+    ]
+  },
+  "config": {
+    "axis": {"labelFontSize": 12, "titleFontSize": 12},
+    "legend": {"labelFontSize": 12, "titleFontSize": 12}
+  }
+}
