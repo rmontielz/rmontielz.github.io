@@ -1,0 +1,76 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/Agregate_by_year.csv"
+  },
+  "transform": [
+    {"filter": "datetime(datum.year) >= datetime(2013, 0, 1)"},
+    {
+      "fold": ["altfin_vol_usd", "business_finance_vol_usd"],
+      "as": ["Variable", "Value"]
+    },
+    {
+      "calculate": "datum.Variable === 'altfin_vol_usd' ? 'Alternative Finance Volume' : 'Business Finance Volume'",
+      "as": "CustomLabel"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "strokeWidth": 3,
+    "point": {"filled": true, "size": 50}
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "temporal",
+      "timeUnit": "year",
+      "title": "Year",
+      "axis": {"labelAngle": 0, "labelFontSize": 12, "titleFontSize": 14}
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Total Volume (thousand USD)",
+      "axis": {"labelFontSize": 12, "titleFontSize": 14}
+    },
+    "color": {
+      "field": "CustomLabel",
+      "type": "nominal",
+      "title": "Category",
+      "scale": {"scheme": "category10"},
+      "legend": {"labelFontSize": 12, "titleFontSize": 14, "orient": "right"}
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "temporal",
+        "title": "Year",
+        "timeUnit": "year"
+      },
+      {
+        "aggregate": "sum",
+        "field": "Value",
+        "type": "quantitative",
+        "title": "Total Volume (USD)",
+        "format": ","
+      },
+      {"field": "CustomLabel", "type": "nominal", "title": "Category"}
+    ]
+  },
+  "title": {
+    "text": "Figure 1: Fintech Activity by Year",
+    "fontSize": 16,
+    "font": "Arial",
+    "anchor": "start",
+    "subtitle": ["Source: Cambridge Centre for Alternative Finance", ""],
+    "subtitleFontSize": 12,
+    "subtitleFont": "Arial"
+  },
+  "width": 400,
+  "height": 300,
+  "config": {
+    "background": "#f9f9f9",
+    "axis": {"gridColor": "#ebebeb", "domainColor": "#888", "tickColor": "#888"}
+  }
+}
