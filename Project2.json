@@ -1,0 +1,123 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f9f9f9",
+  "title": {
+    "text": "Alternative Finance Volume",
+    "fontSize": 16,
+    "subtitle": ["Source: Cambridge Centre for Alternative Finance", ""]
+  },
+  "params": [
+    {
+      "name": "yearSlider",
+      "value": 2013,
+      "bind": {
+        "input": "range",
+        "min": 2013,
+        "max": 2020,
+        "step": 1,
+        "name": "Year"
+      }
+    }
+  ],
+  "vconcat": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/Alternative_Finance_Benchmark_Volumes_2013-20_Distribution.csv"
+      },
+      "transform": [
+        {"filter": "datum.data_year == yearSlider"},
+        {"filter": "datum['primary vertical'] == 'Digital Lending'"},
+        {
+          "aggregate": [
+            {"op": "sum", "field": "altfin_vol_usd", "as": "TotalVolume"}
+          ],
+          "groupby": ["Alternative finance model", "primary vertical"]
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Alternative finance model",
+          "type": "nominal",
+          "title": "",
+          "axis": {"labelAngle": -90, "labelFontSize": 10, "titleFontSize": 14},
+          "sort": {"field": "Alternative finance model", "order": "ascending"}
+        },
+        "y": {
+          "field": "TotalVolume",
+          "type": "quantitative",
+          "title": "Total Volume (USD)",
+          "scale": {"domain": [0, 250000000000], "nice": false},
+          "axis": {"labelFontSize": 12, "titleFontSize": 14}
+        },
+        "tooltip": [
+          {
+            "field": "Alternative finance model",
+            "type": "nominal",
+            "title": "Finance Model"
+          },
+          {
+            "field": "TotalVolume",
+            "type": "quantitative",
+            "title": "Total Volume (USD)",
+            "format": ","
+          },
+          {"field": "data_year", "type": "ordinal", "title": "Year"}
+        ]
+      },
+      "title": {"text": "Digital Lending Activities", "fontSize": 16},
+      "width": 400,
+      "height": 400
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/Alternative_Finance_Benchmark_Volumes_2013-20_Distribution.csv"
+      },
+      "transform": [
+        {"filter": "datum.data_year == yearSlider"},
+        {"filter": "datum['primary vertical'] == 'Digital Capital Raising'"},
+        {
+          "aggregate": [
+            {"op": "sum", "field": "altfin_vol_usd", "as": "TotalVolume"}
+          ],
+          "groupby": ["Alternative finance model", "primary vertical"]
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Alternative finance model",
+          "type": "nominal",
+          "title": "",
+          "axis": {"labelAngle": -90, "labelFontSize": 10, "titleFontSize": 14},
+          "sort": {"field": "Alternative finance model", "order": "ascending"}
+        },
+        "y": {
+          "field": "TotalVolume",
+          "type": "quantitative",
+          "title": "Total Volume (USD)",
+          "scale": {"domain": [0, 10000000000], "nice": false},
+          "axis": {"labelFontSize": 12, "titleFontSize": 14}
+        },
+        "tooltip": [
+          {
+            "field": "Alternative finance model",
+            "type": "nominal",
+            "title": "Finance Model"
+          },
+          {
+            "field": "TotalVolume",
+            "type": "quantitative",
+            "title": "Total Volume (USD)",
+            "format": ","
+          },
+          {"field": "data_year", "type": "ordinal", "title": "Year"}
+        ]
+      },
+      "title": {"text": "Digital Capital Raising Activities", "fontSize": 16},
+      "width": 400,
+      "height": 400
+    }
+  ],
+  "config": {}
+}
