@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Affordability of a healthy diet in the Uk",
+    "text": "Unequal access to a healthy diet in the UK",
     "fontSize": 16,
     "anchor": "start",
     "subtitle": [
