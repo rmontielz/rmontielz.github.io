@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f9f9f9",
+  "params": [
+    {
+      "name": "yearSlider",
+      "value": 2013,
+      "bind": {
+        "input": "range",
+        "min": 2013,
+        "max": 2020,
+        "step": 1,
+        "name": "Select Year"
+      }
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/Completed_Region_Dataset_Consistent.csv"
+  },
+  "transform": [
+    {"filter": "datum.data_year == yearSlider"},
+    {"filter": "datum['Country name'] != 'China'"},
+    {
+      "aggregate": [
+        {"op": "sum", "field": "altfin_vol_usd", "as": "TotalVolume"}
+      ],
+      "groupby": ["Region"]
+    }
+  ],
+  "mark": "arc",
+  "encoding": {
+    "theta": {
+      "field": "TotalVolume",
+      "type": "quantitative",
+      "title": "Total Volume"
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "title": "Region",
+      "legend": {"titleFontSize": 14, "labelFontSize": 12}
+    },
+    "tooltip": [
+      {"field": "Region", "type": "nominal", "title": "Region"},
+      {
+        "field": "TotalVolume",
+        "type": "quantitative",
+        "title": "Total Volume (USD)",
+        "format": ","
+      }
+    ]
+  },
+  "title": {
+    "text": "FinTech Activity by Region ",
+    "fontSize": 16,
+    "subtitle": ["Source: Cambridge Centre for Alternative Finance", ""],
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "width": 500,
+  "height": 400,
+  "config": {}
+}
