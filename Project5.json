@@ -1,0 +1,120 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/Completed_Region_Dataset_Consistent.csv"
+  },
+  "transform": [
+    {"filter": "datum.data_year == 2020"},
+    {"filter": "datum['Country name'] != 'Syrian Arab Republic' "},
+    {"filter": "datum['Country name'] != 'Cuba' "},
+    {
+      "aggregate": [
+        {"op": "sum", "field": "altfin_vol_usd", "as": "TotalVolume"}
+      ],
+      "groupby": ["Country name", "Region"]
+    },
+    {
+      "lookup": "Country name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/2020_ROE_PROFIT.csv"
+        },
+        "key": "Country",
+        "fields": ["roe", "Profit"]
+      }
+    },
+    {"filter": "datum.TotalVolume > 0"},
+    {"calculate": "datum[variableSelection]", "as": "SelectedVariable"},
+    {
+      "calculate": "variableSelection == 'roe' ? 'ROE using P/L before tax' : 'Profit margin'",
+      "as": "YAxisTitle"
+    }
+  ],
+  "params": [
+    {
+      "name": "variableSelection",
+      "value": "roe",
+      "bind": {
+        "input": "select",
+        "options": ["roe", "Profit"],
+        "labels": ["ROE", "Profit margin"],
+        "name": "Select a variable"
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "circle", "size": 55},
+      "encoding": {
+        "x": {
+          "field": "TotalVolume",
+          "type": "quantitative",
+          "title": "Fintech Activity (USD, Log Scale)",
+          "scale": {"type": "log"}
+        },
+        "y": {
+          "field": "SelectedVariable",
+          "type": "quantitative",
+          "title": {
+            "signal": "variableSelection === 'roe' ? 'ROE using P/L before tax' : 'Profit margin'"
+          },
+          "scale": {"type": "linear", "domain": [-10, 60]}
+        },
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "title": "Region",
+          "legend": {"title": "Regions"}
+        },
+        "tooltip": [
+          {"field": "Country name", "type": "nominal", "title": "Country"},
+          {"field": "Region", "type": "nominal", "title": "Region"},
+          {
+            "field": "TotalVolume",
+            "type": "quantitative",
+            "title": "Fintech Activity (USD)",
+            "format": ","
+          },
+          {
+            "field": "SelectedVariable",
+            "type": "quantitative",
+            "title": "SelectedVariable",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [{"regression": "SelectedVariable", "on": "TotalVolume"}],
+      "mark": {"type": "line", "color": "red", "strokeDash": [4, 2]},
+      "encoding": {
+        "x": {
+          "field": "TotalVolume",
+          "type": "quantitative",
+          "title": "Fintech Activity (USD, Log Scale)",
+          "scale": {"type": "log"}
+        },
+        "y": {
+          "field": "SelectedVariable",
+          "type": "quantitative",
+          "title": {"expr": "'Selected Variable: ' + variableSelection"}
+        }
+      }
+    }
+  ],
+  "title": {
+    "text": "Relationship Between Fintech Activity and Banks Profitability (2020)",
+    "fontSize": 16,
+    "subtitle": [
+      "Source: World Development Indicators and Cambridge Centre for Alternative Finance",
+      ""
+    ],
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "config": {
+    "axis": {"grid": false, "gridColor": "lightgray", "gridDash": [2, 4]}
+  },
+  "width": 600,
+  "height": 400
+}
