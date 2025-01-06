@@ -38,7 +38,9 @@
         "input": "select",
         "options": ["roe", "Profit"],
         "labels": ["ROE", "Profit margin"],
-        "name": "Select a variable"
+        "name": "Select a variable",
+        "fontSize": 16,
+        "font": "Helvetica Neue"
       }
     }
   ],
