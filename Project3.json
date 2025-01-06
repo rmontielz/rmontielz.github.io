@@ -1,62 +1,100 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "background": "#f9f9f9",
-  "params": [
-    {
-      "name": "yearSlider",
-      "value": 2013,
-      "bind": {
-        "input": "range",
-        "min": 2013,
-        "max": 2020,
-        "step": 1,
-        "name": "Select Year"
-      }
-    }
-  ],
   "data": {
     "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/Completed_Region_Dataset_Consistent.csv"
   },
   "transform": [
-    {"filter": "datum.data_year == yearSlider"},
+    {"filter": "datum.data_year == 2020"},
     {
       "aggregate": [
         {"op": "sum", "field": "altfin_vol_usd", "as": "TotalVolume"}
       ],
-      "groupby": ["Region"]
+      "groupby": ["Country name", "Region"]
+    },
+    {
+      "lookup": "Country name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/2020_GDP_pc.csv"
+        },
+        "key": "Country Name",
+        "fields": ["GDP_pc"]
+      }
+    },
+    {"filter": "datum.GDP_pc != null"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "circle", "size": 55},
+      "encoding": {
+        "x": {
+          "field": "TotalVolume",
+          "type": "quantitative",
+          "title": "Fintech Activity (USD, Log Scale)",
+          "scale": {"type": "log"}
+        },
+        "y": {
+          "field": "GDP_pc",
+          "type": "quantitative",
+          "title": "GDP per Capita (PPP, USD, Log Scale)",
+          "scale": {"type": "log"}
+        },
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "title": "Region",
+          "legend": {"title": "Regions"}
+        },
+        "tooltip": [
+          {"field": "Country name", "type": "nominal", "title": "Country"},
+          {"field": "Region", "type": "nominal", "title": "Region"},
+          {
+            "field": "TotalVolume",
+            "type": "quantitative",
+            "title": "Fintech Activity (USD)",
+            "format": ","
+          },
+          {
+            "field": "GDP_pc",
+            "type": "quantitative",
+            "title": "GDP per Capita (PPP, $)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [{"regression": "GDP_pc", "on": "TotalVolume"}],
+      "mark": {"type": "line", "color": "red", "strokeDash": [4, 2]},
+      "encoding": {
+        "x": {
+          "field": "TotalVolume",
+          "type": "quantitative",
+          "title": "Fintech Activity (USD, Log Scale)",
+          "scale": {"type": "log"}
+        },
+        "y": {
+          "field": "GDP_pc",
+          "type": "quantitative",
+          "title": "GDP per Capita (PPP, USD, Log Scale)",
+          "scale": {"type": "log"}
+        }
+      }
     }
   ],
-  "mark": "arc",
-  "encoding": {
-    "theta": {
-      "field": "TotalVolume",
-      "type": "quantitative",
-      "title": "Total Volume"
-    },
-    "color": {
-      "field": "Region",
-      "type": "nominal",
-      "title": "Region",
-      "legend": {"titleFontSize": 14, "labelFontSize": 12}
-    },
-    "tooltip": [
-      {"field": "Region", "type": "nominal", "title": "Region"},
-      {
-        "field": "TotalVolume",
-        "type": "quantitative",
-        "title": "Total Volume (USD)",
-        "format": ","
-      }
-    ]
-  },
   "title": {
-    "text": "FinTech Activity by Region ",
+    "text": "Relationship Between Fintech Activity and GDP per Capita (2020)",
     "fontSize": 16,
-    "subtitle": ["Source: Cambridge Centre for Alternative Finance", ""],
+    "subtitle": [
+      "Source: World Development Indicators and Cambridge Centre for Alternative Finance",
+      ""
+    ],
     "subtitleFontSize": 12,
     "anchor": "start"
   },
-  "width": 500,
-  "height": 400,
-  "config": {}
+  "config": {
+    "axis": {"grid": false, "gridColor": "lightgray", "gridDash": [2, 4]}
+  },
+  "width": 600,
+  "height": 400
 }
