@@ -28,14 +28,12 @@
         "x": {
           "field": "data_year",
           "type": "ordinal",
-          "title": null,
-          "axis": {"labelAngle": 0, "labelFontSize": 12, "titleFontSize": 14}
+          "title": null
         },
         "y": {
           "field": "TotalVolumeBillions",
           "type": "quantitative",
-          "title": "Alternative Finance Volume (USD, Billions)",
-          "axis": {"labelFontSize": 12, "titleFontSize": 14}
+          "title": "Alternative Finance Volume (USD, Billions)"
         },
         "color": {
           "field": "LineType",
@@ -143,8 +141,7 @@
     "anchor": "start"
   },
   "config": {
-    "axis": {"grid": true, "gridColor": "lightgray", "gridDash": [2, 4]},
-    "legend": {"title": "Line Types", "titleFontSize": 14, "labelFontSize": 12}
+    "axis": {"grid": true, "gridColor": "lightgray", "gridDash": [2, 4]}
   },
   "width": 400,
   "height": 300
