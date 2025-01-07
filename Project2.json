@@ -37,7 +37,7 @@
     "x": {
       "field": "TotalVolumeBillions",
       "type": "quantitative",
-      "title": "Total Volume (Billions USD)",
+      "title": "Total Volume (USD, Billions)",
       "sort": {"field": "TotalVolumeBillions", "order": "descending"},
       "scale": {"domain": [0, 80]}
     },
@@ -77,7 +77,7 @@
       {
         "field": "TotalVolumeBillions",
         "type": "quantitative",
-        "title": "Total Volume (Billions USD)",
+        "title": "Total Volume (USD, Billions)",
         "format": ","
       }
     ]
