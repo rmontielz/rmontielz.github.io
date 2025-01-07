@@ -1,0 +1,66 @@
+,Country name,Rank,volume_pc,volume_pc_log,Region
+0,United States,1,$222,2.35,North America
+102,Singapore,2,$119,2.08,East Asia & Pacific
+165,Estonia,3,$106,2.03,Europe & Central Asia
+214,United Kingdom,4,$100,2.0,Europe & Central Asia
+332,Lithuania,5,$73,1.86,Europe & Central Asia
+375,Finland,16,$68,1.83,Europe & Central Asia
+430,Israel,7,$68,1.83,Middle East & North Africa
+479,"Hong Kong SAR, China",8,$62,1.79,East Asia & Pacific
+509,Isle of Man,9,$58,1.77,North America
+511,Chile,10,$51,1.71,Latin America & Caribbean
+557,Slovenia,11,$48,1.69,Europe & Central Asia
+575,Armenia,12,$44,1.64,Europe & Central Asia
+590,Australia,13,$40,1.6,East Asia & Pacific
+662,Latvia,14,$40,1.6,Europe & Central Asia
+697,New Zealand,15,$39,1.59,East Asia & Pacific
+743,Moldova,16,$35,1.54,Europe & Central Asia
+760,Italy,18,$31,1.49,Europe & Central Asia
+819,Netherlands,18,$30,1.47,Europe & Central Asia
+901,"Korea, Rep.",19,$22,1.34,East Asia & Pacific
+953,Albania,20,$21,1.32,Europe & Central Asia
+966,France,22,$18,1.27,Europe & Central Asia
+1057,Ghana,22,$17,1.24,Sub-Saharan Africa
+1095,Brazil,23,$17,1.22,Latin America & Caribbean
+1172,Zambia,24,$17,1.22,Sub-Saharan Africa
+1202,Costa Rica,25,$14,1.16,Latin America & Caribbean
+1224,Sweden,26,$13,1.11,Europe & Central Asia
+1277,Uruguay,27,$13,1.1,Latin America & Caribbean
+1296,Spain,29,$12,1.09,Europe & Central Asia
+1366,Czech Republic,29,$12,1.09,Europe & Central Asia
+1414,Germany,30,$12,1.09,Europe & Central Asia
+1490,Norway,31,$11,1.03,Europe & Central Asia
+1527,Denmark,32,$11,1.03,Europe & Central Asia
+1566,Colombia,33,$10,1.01,Latin America & Caribbean
+1618,North Macedonia,34,$10,0.99,Europe & Central Asia
+1632,Botswana,35,$9,0.98,Sub-Saharan Africa
+1648,Kazakhstan,36,$9,0.97,Europe & Central Asia
+1660,Luxembourg,37,$9,0.96,Europe & Central Asia
+1675,Ukraine,38,$9,0.95,Europe & Central Asia
+1693,Poland,39,$8,0.9,Europe & Central Asia
+1739,Bulgaria,40,$8,0.88,Europe & Central Asia
+1761,United Arab Emirates,41,$7,0.84,Middle East & North Africa
+1801,Switzerland,42,$6,0.75,Europe & Central Asia
+1843,Belgium,43,$5,0.72,Europe & Central Asia
+1891,Indonesia,45,$5,0.72,East Asia & Pacific
+1953,Japan,45,$5,0.71,East Asia & Pacific
+1998,Faroe Islands,46,$5,0.67,Europe & Central Asia
+2003,Georgia,47,$5,0.67,Europe & Central Asia
+2022,Canada,48,$5,0.65,North America
+2094,Ireland,49,$4,0.62,Europe & Central Asia
+2120,Mexico,50,$4,0.61,Latin America & Caribbean
+2193,Malaysia,51,$3,0.54,East Asia & Pacific
+2232,Namibia,52,$3,0.52,Sub-Saharan Africa
+2250,Dominican Republic,54,$3,0.49,Latin America & Caribbean
+2273,Uganda,54,$2,0.39,Sub-Saharan Africa
+2319,Peru,55,$2,0.38,Latin America & Caribbean
+2360,Tanzania,56,$2,0.25,Sub-Saharan Africa
+2392,Portugal,57,$2,0.23,Europe & Central Asia
+2424,India,58,$2,0.22,South Asia
+2485,Belarus,59,$2,0.21,Europe & Central Asia
+2495,Russian Federation,60,$2,0.21,Europe & Central Asia
+2517,Argentina,61,$2,0.2,Latin America & Caribbean
+2572,Romania,62,$2,0.19,Europe & Central Asia
+2602,Kenya,63,$1,0.12,Sub-Saharan Africa
+2656,Vietnam,64,$1,0.09,East Asia & Pacific
+2683,Mauritius,65,$1,0.0,Sub-Saharan Africa
