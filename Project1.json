@@ -15,7 +15,7 @@
         },
         {
           "calculate": "datum.TotalVolume / 1000000000",
-          "as": "TotalVolumeTrillions"
+          "as": "TotalVolumeBillions"
         },
         {"calculate": "'Total Volume'", "as": "LineType"}
       ],
@@ -32,9 +32,9 @@
           "axis": {"labelAngle": 0, "labelFontSize": 12, "titleFontSize": 14}
         },
         "y": {
-          "field": "TotalVolumeTrillions",
+          "field": "TotalVolumeBillions",
           "type": "quantitative",
-          "title": "Alternative Finance Volume (USD, Trillions)",
+          "title": "Alternative Finance Volume (USD, Billions)",
           "axis": {"labelFontSize": 12, "titleFontSize": 14}
         },
         "color": {
@@ -57,9 +57,9 @@
         "tooltip": [
           {"field": "data_year", "type": "ordinal", "title": "Year"},
           {
-            "field": "TotalVolumeTrillions",
+            "field": "TotalVolumeBillions",
             "type": "quantitative",
-            "title": "Total Volume (USD, Trillions)",
+            "title": "Total Volume (USD, Billions)",
             "format": ",.3f"
           }
         ]
@@ -80,7 +80,7 @@
         },
         {
           "calculate": "datum.ExcludingChinaVolume / 1000000000",
-          "as": "ExcludingChinaVolumeTrillions"
+          "as": "ExcludingChinaVolumeBillions"
         },
         {"calculate": "'Volume Excluding China'", "as": "LineType"}
       ],
@@ -97,9 +97,9 @@
           "axis": {"labelFontSize": 12, "titleFontSize": 14}
         },
         "y": {
-          "field": "ExcludingChinaVolumeTrillions",
+          "field": "ExcludingChinaVolumeBillions",
           "type": "quantitative",
-          "title": "Alternative Finance Volume (USD, Trillions)",
+          "title": "Alternative Finance Volume (USD, Billions)",
           "axis": {"labelFontSize": 12, "titleFontSize": 14}
         },
         "color": {
@@ -122,9 +122,9 @@
         "tooltip": [
           {"field": "data_year", "type": "ordinal", "title": "Year"},
           {
-            "field": "ExcludingChinaVolumeTrillions",
+            "field": "ExcludingChinaVolumeBillions",
             "type": "quantitative",
-            "title": "Volume Excluding China (USD, Trillions)",
+            "title": "Volume Excluding China (USD, Billions)",
             "format": ",.3f"
           }
         ]
@@ -134,8 +134,7 @@
   "title": {
     "text": "Trends in Fintech Activity Volume (2013–2020)",
     "subtitle": [
-      "Comparison of Total Volume vs Volume Excluding China",
-      "Source: Cambridge Centre for Alternative Finance",
+      "Source: Cambridge Centre for Alternative Finance (CCAF).",
       ""
     ],
     "fontSize": 16,
