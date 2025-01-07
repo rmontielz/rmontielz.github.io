@@ -80,7 +80,7 @@
           {
             "field": "SelectedVariable",
             "type": "quantitative",
-            "title": "SelectedVariable",
+            "title": "ROE/Profit Margin",
             "format": ","
           }
         ]
@@ -108,7 +108,7 @@
     "text": "Relationship Between Fintech Activity and Banks Profitability (2020)",
     "fontSize": 16,
     "subtitle": [
-      "Source: World Development Indicators and Cambridge Centre for Alternative Finance",
+      "Source: WB Data Bank, Orbis and CCFA.",
       ""
     ],
     "subtitleFontSize": 12,
