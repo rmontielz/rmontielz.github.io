@@ -1,55 +1,95 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "background": "#f9f9f9",
   "data": {
     "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/Completed_Region_Dataset_Consistent.csv"
   },
+  "params": [
+    {
+      "name": "selectedYear",
+      "value": 2020,
+      "bind": {
+        "input": "range",
+        "min": 2013,
+        "max": 2020,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
   "transform": [
-    {"filter": "datum.data_year == 2020"},
+    {"filter": "datum.data_year == selectedYear"},
+    {"filter": "datum['Country name'] != 'China'"},
     {
       "aggregate": [
         {"op": "sum", "field": "altfin_vol_usd", "as": "TotalVolume"}
       ],
-      "groupby": ["Region"]
-    }
+      "groupby": ["Country name", "Region"]
+    },
+    {"calculate": "datum.TotalVolume / 1e9", "as": "TotalVolumeBillions"},
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "TotalVolume", "order": "descending"}]
+    },
+    {"filter": "datum.rank <= 10"}
   ],
   "mark": "bar",
   "encoding": {
     "x": {
-      "field": "Region",
-      "type": "nominal",
-      "title": "Region",
-      "axis": {"labelAngle": -45, "labelFontSize": 12, "titleFontSize": 14}
+      "field": "TotalVolumeBillions",
+      "type": "quantitative",
+      "title": "Total Volume (Billions USD)",
+      "sort": {"field": "TotalVolumeBillions", "order": "descending"},
+      "scale": {"domain": [0, 80]}
     },
     "y": {
-      "field": "TotalVolume",
-      "type": "quantitative",
-      "title": "Total Volume (trillion USD)",
-      "scale": {"domain": [0, 80000000000], "nice": false},
-      "axis": {
-        "labelFontSize": 12,
-        "titleFontSize": 14,
-        "labelExpr": "datum.value / 1e9"
+      "field": "Country name",
+      "type": "nominal",
+      "title": "Country",
+      "sort": "-x"
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "legend": {"title": "Regions", "symbolType": "circle"},
+      "scale": {
+        "domain": [
+          "East Asia & Pacific",
+          "Europe & Central Asia",
+          "Latin America & Caribbean",
+          "Middle East & North Africa",
+          "North America",
+          "South Asia",
+          "Sub-Saharan Africa"
+        ],
+        "range": [
+          "#7F9EC8",
+          "#FCAD6A",
+          "#E38B86",
+          "#A7D2D2",
+          "#91C281",
+          "#FFE574",
+          "#C69FBF"
+        ]
       }
     },
     "tooltip": [
-      {"field": "Region", "type": "nominal", "title": "Region"},
+      {"field": "Country name", "type": "nominal", "title": "Country"},
       {
-        "field": "TotalVolume",
+        "field": "TotalVolumeBillions",
         "type": "quantitative",
-        "title": "Total Volume (USD)",
+        "title": "Total Volume (Billions USD)",
         "format": ","
       }
     ]
   },
   "title": {
-    "text": "FinTech Activity by Region ",
+    "text": "Top 10 Countries by Fintech Transaction Volume (excluding China)",
     "fontSize": 16,
-    "subtitle": ["Source: Cambridge Centre for Alternative Finance", ""],
+    "subtitle": ["Source: CCFA.", ""],
     "subtitleFontSize": 12,
     "anchor": "start"
   },
-  "width": 500,
-  "height": 400,
+  "width": 400,
+  "height": 300,
   "config": {}
 }
