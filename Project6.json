@@ -115,6 +115,6 @@
   "config": {
     "axis": {"grid": false, "gridColor": "lightgray", "gridDash": [2, 4]}
   },
-  "width": 600,
-  "height": 400
+  "width": 400,
+  "height": 300
 }
