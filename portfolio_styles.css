@@ -1,11 +1,44 @@
-/* This is an example CSS file. If you include it in your portfolio, it'll provide some clean and basic styling */
-/* for your page. Feel free to experiment with the values, or copy them into a new file and use that instead. */
 
-/* These are comments in CSS. Comments don't do anything except explain your working to make code easier to understand. */
+
+/* Cover container */
+.cover-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh; /* Full viewport height */
+  background: url('cover2.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Optional overlay for darkening the background */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2; /* Ensure content is above the overlay */
+}
+
 
 
 body { /* We can style any HTML element by using its name - here we're styling the body */
   /* We want text that uses a clean sans-serif font, is usually 16px big and close to black */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   color: #333;
@@ -14,13 +47,13 @@ body { /* We can style any HTML element by using its name - here we're styling t
   background-color: #fff;
   margin:0 auto;
   max-width: 800px;
-  padding-top: 60px;
+  padding: 0;
 }
 
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  color: #e05e2f;
+  color: ##702963;
   margin-top: 24px;
   margin-bottom: 16px;
   font-weight: 600;
@@ -67,4 +100,20 @@ a:hover {
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* Buttons */
+.buttons .btn {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  background: #702963;
+  color: white;
+  border-radius: 5px;
+  margin: 0 0.5rem;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.buttons .btn:hover {
+  background: #673147;
 }
