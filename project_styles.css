@@ -29,34 +29,69 @@ body, html {
   z-index: 1;
 }
 
-/* Content styling */
-.content {
-  position: relative;
-  z-index: 2;
+
+
+body { /* We can style any HTML element by using its name - here we're styling the body */
+  /* We want text that uses a clean sans-serif font, is usually 16px big and close to black */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  /* we want a white page, that's centered and not too wide */
+  background-color: #fff;
+  margin:0 auto;
+  max-width: 800px;
+  padding-top: 60px;
 }
 
-.content h1 {
-  font-size: 3rem;
-  margin: 0 0 1rem;
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #e05e2f;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
 }
 
-.content p {
-  font-size: 1.25rem;
-  margin: 0 0 2rem;
-  color: #f0f0f0;
+/* We want the headings to be a little bigger than the paragraph text */
+.big { /* This is the class we created in the HTML file, you can use it to style any element */
+  font-size: 2.5em;
+}
+h1 {
+  font-size: 3em;
 }
 
-/* Buttons */
-.buttons .btn {
+h2 {
+  font-size: 1.75em;
+}
+
+.small {
+  font-size: 1.25em;
+}
+
+/* Paragraph */
+p {
+  margin-bottom: 1em;
+  font-weight: 300;
+}
+
+section {
+  margin-bottom: 2.5em;  /* We want a little more space between sections */
+}
+
+/* Links */
+/* We want the links to be a little more visible  and a different color */
+a {
+  color: #065f46;
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  background: #007BFF;
-  color: white;
-  border-radius: 5px;
-  margin: 0 0.5rem;
-  transition: background 0.3s ease;
 }
 
-.buttons .btn:hover {
-  background: #0056b3;
+a:hover {
+  text-decoration: underline;
+}
+  
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
 }
