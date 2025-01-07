@@ -20,7 +20,7 @@ body { /* We can style any HTML element by using its name - here we're styling t
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  color: #333;
+  color: #e05e2f;
   margin-top: 24px;
   margin-bottom: 16px;
   font-weight: 600;
@@ -29,6 +29,9 @@ h1, h2, h3, h4, h5, h6 {
 /* We want the headings to be a little bigger than the paragraph text */
 .big { /* This is the class we created in the HTML file, you can use it to style any element */
   font-size: 2.5em;
+}
+h1 {
+  font-size: 3em;
 }
 
 h2 {
