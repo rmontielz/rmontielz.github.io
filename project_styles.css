@@ -11,6 +11,7 @@
   align-items: center;
   color: white;
   text-align: center;
+  overflow: hidden;
 }
 
 /* Optional overlay for darkening the background */
