@@ -1,0 +1,120 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/2020_Fintech_pc_log.csv"
+  },
+  "transform": [
+    {"filter": "datum.countryname != 'Syrian Arab Republic' "},
+    {"filter": "datum.countryname != 'Cuba' "},
+    {
+      "lookup": "countryname",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/2020_ROE_PROFIT.csv"
+        },
+        "key": "Country",
+        "fields": ["roe", "Profit"]
+      }
+    },
+    {"calculate": "datum[variableSelection]", "as": "SelectedVariable"},
+    {
+      "calculate": "variableSelection == 'roe' ? 'ROE using P/L before tax' : 'Profit margin'",
+      "as": "YAxisTitle"
+    }
+  ],
+  "params": [
+    {
+      "name": "variableSelection",
+      "value": "roe",
+      "bind": {
+        "input": "select",
+        "options": ["roe", "Profit"],
+        "labels": ["ROE", "Profit margin"],
+        "name": "Select a variable",
+        "fontSize": 16
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "circle", "size": 55},
+      "encoding": {
+        "x": {
+          "field": "fintech_pc_log",
+          "type": "quantitative",
+          "title": "Fintech Activity Per Capita (USD, Log Scale)",
+          "scale": {"type": "linear"}
+        },
+        "y": {
+          "field": "SelectedVariable",
+          "type": "quantitative",
+          "title": {
+            "signal": "variableSelection === 'roe' ? 'ROE using P/L before tax' : 'Profit margin'"
+          },
+          "color": {
+            "type": "ordinal",
+            "domain": {"data": "data_0", "field": "Region", "sort": true},
+            "range": "category"
+          },
+          "scale": {"type": "linear", "domain": [-10, 60]}
+        },
+        "fill": {"scale": "color", "field": "region"},
+        "tooltip": [
+          {"field": "countryname", "type": "nominal", "title": "Country"},
+          {
+            "field": "fintech_pc_log",
+            "type": "quantitative",
+            "title": "Fintech Activity Per Capita (USD, Log Scale)",
+            "format": ","
+          },
+          {
+            "field": "SelectedVariable",
+            "type": "quantitative",
+            "title": "ROE/Profit Margin",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "regression": "SelectedVariable",
+          "on": "fintech_pc_log",
+          "extent": [-12, 6]
+        }
+      ],
+      "mark": {"type": "line", "color": "red", "strokeDash": [4, 2]},
+      "encoding": {
+        "x": {
+          "field": "fintech_pc_log",
+          "type": "quantitative",
+          "title": "Fintech Activity Per Capita (USD, Log Scale)",
+          "scale": {"type": "linear"}
+        },
+        "y": {
+          "field": "SelectedVariable",
+          "type": "quantitative",
+          "title": {
+            "signal": "variableSelection === 'roe' ? 'ROE using P/L before tax' : 'Profit margin'"
+          }
+        }
+      }
+    }
+  ],
+  "title": {
+    "text": "Relationship Between Fintech Activity Per Capita and Banks Profitability (2020)",
+    "fontSize": 16,
+    "subtitle": [
+      "Source: World Bank Group Data Bank and Cambridge Centre for Alternative Finance",
+      ""
+    ],
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "config": {
+    "axis": {"grid": false, "gridColor": "lightgray", "gridDash": [2, 4]}
+  },
+  "width": 600,
+  "height": 400
+}
