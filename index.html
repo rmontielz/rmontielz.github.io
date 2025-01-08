@@ -134,6 +134,7 @@
                 Please find below my base map for Chile and a point map. 
             </p>
         </div>
+        <figure id="Locationxx"></figure>        
         <figure id="Location11"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
 
@@ -188,6 +189,7 @@
         let figure_8_spec = "CC4-2.json" 
         let figure_9_spec = "CC5-1.json" 
         let figure_10_spec = "CC6-1.json"
+        let figure_empty = "regiones.json"
         let figure_11_spec = "visualization.vl-3.json"
         let figure_12_spec = "CC8-1.json"
         let figure_13_spec = "CC8-2.json"
@@ -206,6 +208,7 @@
         vegaEmbed('#Location8', figure_8_spec)
         vegaEmbed('#Location9', figure_9_spec)
         vegaEmbed('#Location10', figure_10_spec)
+        vegaEmbed('#Locationxx', figure_empty)
         vegaEmbed('#Location11', figure_11_spec)
         vegaEmbed('#Location16', figure_16_spec)
         vegaEmbed('#Location17', figure_17_spec)
