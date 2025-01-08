@@ -1,0 +1,211 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Consumer Price Index Dissagregation (2019-2020)",
+    "subtitle": "Source: ONS."
+  },
+  "vconcat": [
+    {
+      "hconcat": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/ONS_L522_data.json",
+            "format": {"property": "years"}
+          },
+          "title": "Consumer Prices Index",
+          "width": 450,
+          "mark": {"type": "line", "color": "#a052f7"},
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "axis": {"title": "Date", "grid": false}
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Index Value", "grid": false}
+            }
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/ONS_CZBH_data.json",
+            "format": {"property": "years"}
+          },
+          "title": "Food & Non-Alcoholic Beverages",
+          "mark": {"type": "line", "color": "#53a60a"},
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "axis": {"title": "Date", "grid": false}
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Index Value", "grid": false}
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/ONS_L55O_data.json",
+            "format": {"property": "years"}
+          },
+          "title": "Housing Costs",
+          "mark": {"type": "line", "color": "#ff5733"},
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "axis": {"title": "Date", "grid": false}
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Index Value", "grid": false}
+            }
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/ONS_CZBM_data.json",
+            "format": {"property": "years"}
+          },
+          "title": "Water, Electricity, & Gas",
+          "mark": {"type": "line", "color": "#33c3ff"},
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "axis": {"title": "Date", "grid": false}
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Index Value", "grid": false}
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/ONS_CZBT_data.json",
+            "format": {"property": "years"}
+          },
+          "title": "Transportation Costs",
+          "mark": {"type": "line", "color": "#f5a742"},
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "axis": {"title": "Date", "grid": false}
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Index Value", "grid": false}
+            }
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/ONS_D7BT_data.json",
+            "format": {"property": "years"}
+          },
+          "title": "Clothing & Footwear",
+          "mark": {"type": "line", "color": "#ff6347"},
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "axis": {"title": "Date", "grid": false}
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Index Value", "grid": false}
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/ONS_D7BU_data.json",
+            "format": {"property": "years"}
+          },
+          "title": "Alcohol & Tobacco",
+          "mark": {"type": "line", "color": "#32cd32"},
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "axis": {"title": "Date", "grid": false}
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Index Value", "grid": false}
+            }
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/ONS_D7BV_data.json",
+            "format": {"property": "years"}
+          },
+          "title": "Communications",
+          "mark": {"type": "line", "color": "#8a2be2"},
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "axis": {"title": "Date", "grid": false}
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Index Value", "grid": false}
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/ONS_D7BW_data.json",
+            "format": {"property": "years"}
+          },
+          "title": "Recreation & Culture",
+          "mark": {"type": "line", "color": "#daa520"},
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "axis": {"title": "Date", "grid": false}
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Index Value", "grid": false}
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "config": {}
+}
