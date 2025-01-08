@@ -31,6 +31,7 @@
           "type": "quantitative",
           "scale": {"scheme": "tealblues", "domain": [1250, 1500]}
         },
+        "legend": {"title": "Price"},
         "tooltip": [
           {"field": "precio", "title": "Price"},
           {"field": "direccion", "title": "Address"},
