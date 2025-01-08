@@ -24,7 +24,7 @@
         <a href="https://github.com/rmontielz" class="btn">My GitHub</a>
       </div> </div> </div>
 
-    <h1>Fintech Effect </h1>
+
 
     <p>The explosive growth of the FinTech sector has reshaped the financial landscape, challenging traditional banks to adapt or risk obsolescence. While some banks view FinTech as a disruptive threat, others have embraced it, investing heavily in their own FinTech initiatives. This paradox raises a fascinating question: if FinTech undermines the traditional banking model, why are banks so eager to be part of the revolution? This data visualization project dives into this puzzle, exploring the interplay between FinTech and traditional banking. Does FinTech pose a significant threat to the profitability of the banking industry? By examining the data, I aim to shed light on this critical question for financial inclusion, innovation, and regulatory policy.  </p>
 <section>
@@ -49,9 +49,9 @@ The figures below indicate a modest negative correlation between the size of the
 </section>
 <section>  
     <h2> Conclusions and Future Work </h2>
-    <p>The results of this project should not be interpreted as evidence of causality due to the bidirectional relationship between FinTech development and bank performance. While FinTech growth may influence bank profitability through competition or collaboration, it is equally plausible that FinTech expands in regions where banks are less profitable, targeting unmet demand or inefficiencies. This mutual influence complicates establishing a causal relationship, as FinTech development (the independent variable) may be correlated with the model’s error term.
+    <p>The main conclusion from the graphs above is that Fintech activity is negatively correlated with banks profitability, a finding that remains consistent across various measurements. However, the results of this project should not be interpreted as evidence of causality due to the complex bidirectional relationship between FinTech development and bank performance. While it is plausible that FinTech growth may influence bank profitability through competition, the reverse causal effect is equally plausible, i.e. that FinTech expands in regions where banks are less profitable, targeting unmet demand or inefficiencies. This mutual influence complicates establishing a causal relationship, as FinTech development (the independent variable) may be correlated with the model’s error term.
     </p>
-    <p> This project is a first step for my dissertation, which plans to address this issue. An instrumental variable (IV) approach could be employed with that purpose. Potential instruments could be the share of individuals using the Internet and mobile cellular suscriptions, which are key drivers of FinTech growth (Haddad and Hornuf, 2019). For an instrument to be valid, it must meet two conditions: relevance (a strong connection to FinTech growth) and exogeneity (independence from the model’s error term). The final graphs in this project evaluate whether the relevance condition of these potential instruments are satisfied.</p>
+    <p> This project serves as an initial step for my dissertation, which aims to address this issue of endogeneity, as it is referred to in econometrics. An instrumental variable (IV) approach could be employed with that purpose. Potential instruments could be the share of individuals using the Internet and mobile cellular suscriptions, which are key drivers of FinTech growth (Haddad and Hornuf, 2019). For an instrument to be valid, it must meet two conditions: relevance (a strong connection to FinTech growth) and exogeneity (independence from the model’s error term). The final graphs in this project evaluate whether the relevance condition of these potential instruments are satisfied.</p>
 </section>
     
 <section>  
@@ -63,7 +63,8 @@ The figures below indicate a modest negative correlation between the size of the
   Second, <a href="https://www.bvdinfo.com/" target="_blank">Moody's Orbis database by Bureau van Dijk</a>, which provided bank-level profitability data that I aggregated by country. 
   Third, the <a href="https://data.worldbank.org/" target="_blank">World Bank Group Data Bank</a>, including information on total population used to compute FinTech transaction volumes per capita.
 </p>
-<p> The primary challenge with the data lies in its recency, as the latest available dataset is from 2020. Given the dynamic nature of the FinTech industry, much like other technological markets, significant developments could have occurred in the subsequent four years. Access to more recent data would greatly enhance the quality and relevance of the analysis. Additionally, because the data has not been updated in recent years, I considered that incorporating an automation component into this project was unnecessary. Furthermore, the CCAF does not currently offer an API for data access. Nonetheless, since the information is presented on the website in a table format, web scraping should be relatively straightforward. </p>
+<p> The primary challenge with the data lies in its recency, as the latest available dataset is from 2020. Given the dynamic nature of the FinTech industry, much like other technological markets, significant developments could have occurred in the subsequent four years. Access to more recent data would greatly improve the quality and relevance of the analysis. Additionally, because the data has not been updated in recent years, I considered that incorporating an automation component into this project was unnecessary. Furthermore, the CCAF does not currently offer an API for data access. Nonetheless, since the information is presented on the website in a table format, web scraping should be relatively straightforward. </p>
+<p> A second challenge was the limitation of the Orbis dataset, which allowed data downloads from only a restricted pool of companies at a time. Due to the vast number of observations, I had to narrow the project to a single year, which prevented any analysis over time.</p>
 </section>
 <section>
     <h2> Bibliography</h2>
