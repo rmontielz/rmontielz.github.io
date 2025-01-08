@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 150,
   "height": 500,
-  "title": "The price of gas 95 in Chile",
+  "title": "Gas stations in Chile and gas 95 prices",
   "subtitle": ["Source: Ministry of Energy of Chile.", ""],
   "layer": [
     {
