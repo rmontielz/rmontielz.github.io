@@ -1,9 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 150,
-  "height": 500,
-  "title": "Gas stations in Chile and gas 95 prices",
-  "subtitle": ["Source: Ministry of Energy of Chile.", ""],
+  "height": 600,
+  "title": {"text": "Gas stations in Chile and gas 95 prices",
+  "subtitle": ["Source: Ministry of Energy of Chile.", ""], "anchor": "start"},
+   "projection": {
+    "type": "mercator", "center": [-70.7, -40],
+  "scale": 600
+  },
   "layer": [
     {
       "data": {
@@ -30,7 +34,7 @@
           "field": "precio",
           "type": "quantitative",
           "scale": {"scheme": "tealblues", "domain": [1250, 1500]},
-          "legend": {"title": "Price"}
+          "legend": {"title": "Price", "orient": "right"}
         },
 
         "tooltip": [
@@ -44,3 +48,5 @@
   ],
   "config": {}
 }
+  
+
