@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "background": "#f9f9f9",
   "params": [
     {
       "name": "yearSlider",
@@ -51,7 +50,7 @@
     ]
   },
   "title": {
-    "text": "FinTech Activity by Region ",
+    "text": "FinTech Activity by Region (Excluding China) ",
     "fontSize": 16,
     "subtitle": ["Source: Cambridge Centre for Alternative Finance", ""],
     "subtitleFontSize": 12,
