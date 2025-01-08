@@ -3,9 +3,9 @@
   "width": 200,
   "height": 600,
   "title": "Base Map",
-    "projection": {
-    "type": "mercator", "center": [-70.7, -33.5],
-  "scale": 500
+"projection": {
+    "type": "mercator", "center": [-70.7, -40],
+  "scale": 600
   },
   "data": {
         "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/regiones.json"
