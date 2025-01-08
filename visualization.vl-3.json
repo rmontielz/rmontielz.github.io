@@ -1,8 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 200,
+  "width": 150,
   "height": 500,
-  "title": "The price of gas 95",
+  "title": "The price of gas 95 in Chile",
+  "subtitle: {"Source: Ministry of Energy of Chile.", ""},
   "layer": [
     {
       "data": {
@@ -31,10 +32,10 @@
           "scale": {"scheme": "tealblues", "domain": [1250, 1500]}
         },
         "tooltip": [
-          {"field": "precio"},
-          {"field": "direccion"},
-          {"field": "longitud"},
-          {"field": "latitud"}
+          {"field": "precio", "title": "Price"},
+          {"field": "direccion", "title": "Address"},
+          {"field": "longitud", "title": "Longitude"},
+          {"field": "latitud", "title": "Latitud"}
         ]
       }
     }
