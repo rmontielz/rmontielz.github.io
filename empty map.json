@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 150,
+  "height": 500,
+  "title": "Base Map",
+  "data": {
+        "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/regiones.json"
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgrey",
+        "opacity": 0.5,
+        "stroke": "black",
+        "strokeWidth": 0.2
+      }
+    
+    }
+  
