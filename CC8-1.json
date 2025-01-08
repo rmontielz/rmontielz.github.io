@@ -1,0 +1,88 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Mean price for London and Rest of UK for Smokeless Fuel 50KG (420103).",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rmontielz/rmontielz.github.io/refs/heads/main/db_final.csv",
+    "format": {"type": "csv"}
+  },
+  "title": {
+    "text": "Average Price for Smokeless Fuel 50 KG: London vs Rest of UK"
+  },
+  "width": 500,
+  "height": 300,
+  "transform": [
+    {"filter": "datum.item_id == 420103"},
+    {
+      "calculate": "datum.region == 2 ? 'London' : 'Rest of UK'",
+      "as": "region_group"
+    },
+    {
+      "aggregate": [{"op": "mean", "field": "price", "as": "mean_price"}],
+      "groupby": ["date4", "region_group"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "date4", "type": "temporal", "title": "Date"},
+        "y": {
+          "field": "mean_price",
+          "type": "quantitative",
+          "title": "Mean Price"
+        },
+        "color": {
+          "field": "region_group",
+          "type": "nominal",
+          "title": "Region",
+          "scale": {
+            "domain": ["London", "Rest of UK"],
+            "range": ["darkorange", "darkblue"]
+          }
+        },
+        "tooltip": [
+          {"field": "region_group", "type": "nominal", "title": "Region"},
+          {
+            "field": "mean_price",
+            "type": "quantitative",
+            "title": "Mean Price"
+          },
+          {"field": "date4", "type": "temporal", "title": "Date"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"date": "2008-09-15", "event": "Financial Crisis"},
+          {"date": "2022-02-24", "event": "Russian Invasion"}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {"type": "rule", "color": "red", "strokeDash": [5, 5]},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "tooltip": {"field": "event", "type": "nominal", "title": "Event"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 5,
+            "dy": -5,
+            "fontSize": 10,
+            "color": "red"
+          },
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"value": 0},
+            "text": {"field": "event", "type": "nominal"}
+          }
+        }
+      ]
+    }
+  ],
+  "config": {}
+}
