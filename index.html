@@ -142,10 +142,10 @@
         <div class="chart-description">
             <h2>CC8. Big Data. Extracting a story from millions of prices.</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                Please find below two embeded charts
-            </p>
+                The two figures below illustrate the changes in fuel and kerosene prices over time, highlighting any differences between London and the rest of the UK. Interestingly, for fuel, there is a notable disparity, with prices in London averaging 36% higher. In contrast, kerosene prices show minimal variation between London and the rest of the UK. </p>
         </div>
-        <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <figure id="Location12"></figure> 
+        <figure id="Location13"></figure> 
     </section>
 
             <section>
@@ -210,6 +210,8 @@
         vegaEmbed('#Location10', figure_10_spec)
         vegaEmbed('#Locationxx', figure_empty)
         vegaEmbed('#Location11', figure_11_spec)
+        VegaEmbed('#Location12', figure_12_spec)
+        VegaEmbed('#Location13', figure_13_spec)
         vegaEmbed('#Location16', figure_16_spec)
         vegaEmbed('#Location17', figure_17_spec)
         
