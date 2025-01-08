@@ -18,9 +18,9 @@ resp = pd.DataFrame(
 
 # Solicitar la Deuda pública en relación al PIB (porcentaje del PIB)
 resp = pd.DataFrame(
-    client.get_macro(serie='F012.PPCP.FLU.N.7.AME.CL.USD.FMI.Z.0.A')
+    client.get_macro(serie='F033.FKF.PPB.Z.Z.2018.0.T')
     )
 
 print(resp.head())
 
-resp.to_csv('/Users/rosario/Downloads/bcch_scrapped.csv', index=False)
+resp.to_csv('/Users/rosario/Downloads/bcch_scrapped2.csv', index=False)
