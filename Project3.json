@@ -25,6 +25,13 @@
   ],
   "layer": [
     {
+      "selection": {
+        "highlight": {
+          "type": "multi",
+          "fields": ["Region"],
+          "bind": "legend"
+        }
+      },
       "mark": {"type": "circle", "size": 55},
       "encoding": {
         "x": {
@@ -44,6 +51,10 @@
           "type": "nominal",
           "title": "Region",
           "legend": {"title": "Regions"}
+        },
+        "opacity": {
+          "condition": {"selection": "highlight", "value": 1},
+          "value": 0.2
         },
         "tooltip": [
           {"field": "Country name", "type": "nominal", "title": "Country"},
