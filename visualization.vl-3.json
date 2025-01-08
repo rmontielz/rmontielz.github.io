@@ -33,7 +33,7 @@
         "color": {
           "field": "precio",
           "type": "quantitative",
-          "scale": {"scheme": "tealblues", "domain": [1250, 1500]},
+          "scale": {"scheme": "lightmulti", "domain": [1250, 1500]},
           "legend": {"title": "Price", "orient": "right"}
         },
 
