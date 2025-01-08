@@ -29,9 +29,10 @@
         "color": {
           "field": "precio",
           "type": "quantitative",
-          "scale": {"scheme": "tealblues", "domain": [1250, 1500]}
+          "scale": {"scheme": "tealblues", "domain": [1250, 1500]},
+          "legend": {"title": "Price"}
         },
-        "legend": {"title": "Price"},
+
         "tooltip": [
           {"field": "precio", "title": "Price"},
           {"field": "direccion", "title": "Address"},
