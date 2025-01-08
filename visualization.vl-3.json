@@ -3,7 +3,7 @@
   "width": 150,
   "height": 500,
   "title": "The price of gas 95 in Chile",
-  "subtitle: {"Source: Ministry of Energy of Chile.", ""},
+  "subtitle: ["Source: Ministry of Energy of Chile.", ""],
   "layer": [
     {
       "data": {
